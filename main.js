@@ -142,8 +142,10 @@ function updateProduct() {
 }
 
 function validationInput(element, msgId) {
+  // element دا الي ماسك كل ال input سواء name ;priceوكده
+  // msgid دا الي ماسك كل ال id بتاع ال input
   var regex = {
-    productName: /^[a-zA-Z][a-zA-Z0-9]{2,19}$/,
+    productName: /^[a-zA-Z][a-zA-Z0-9 _]{2,19}$/,
     productPrice: /^\d{1,10}(\.\d{1,2})?$/,
     productCategory: /^(tv|mobile|screens|electronic)$/i,
     productDescription: /^.{3,}$/m,
@@ -151,7 +153,7 @@ function validationInput(element, msgId) {
     // اهم حاجه اسمهم زي اسم ال id بتاع كل input
   };
   var text = element.value;
-  var msgId = document.getElementById("msgId");
+  var msgId = document.getElementById(msgId);
 
   if (regex[element.id].test(text)) {
     element.classList.add("is-valid");
